@@ -7,11 +7,12 @@ import SectionHeading from "./SectionHeading";
 type ProductCardProps = {
   product: Product;
   price: string;
+  originalPrice: string;
   token: string;
   delay?: number;
 };
 
-function ProductCard({ product, price, token, delay = 0 }: ProductCardProps) {
+function ProductCard({ product, price, originalPrice, token, delay = 0 }: ProductCardProps) {
   const P = product;
   return (
     <Reveal delay={delay} className="h-full">
@@ -53,7 +54,13 @@ function ProductCard({ product, price, token, delay = 0 }: ProductCardProps) {
           {/* Price + CTA */}
           <div className="mt-8 flex items-end justify-between border-t border-ink/10 pt-6">
             <div>
-              <PriceTag price={price} token={token} />
+              <div className="flex items-baseline gap-2.5">
+                <PriceTag price={price} token={token} />
+                <span className="font-serif text-sm text-ink-mute line-through">{originalPrice}</span>
+                <span className="rounded-full bg-sage-mist px-2 py-0.5 text-[11px] font-semibold text-sage-deep">
+                  60% OFF
+                </span>
+              </div>
               <p className="mt-1.5 text-[11px] font-medium uppercase tracking-[0.16em] text-ink-mute">
                 Digital ebook · {SITE.EBOOK_FORMAT}
               </p>
@@ -86,8 +93,19 @@ export default function Products() {
         />
 
         <div className="mt-14 grid gap-6 md:grid-cols-2 md:gap-8 lg:mt-16">
-          <ProductCard product={GENIUS} price={CHECKOUT.GENIUS_METHOD_PRICE} token="GENIUS_METHOD_PRICE" />
-          <ProductCard product={HELL} price={CHECKOUT.HELL_METHOD_PRICE} token="HELL_METHOD_PRICE" delay={120} />
+          <ProductCard
+            product={GENIUS}
+            price={CHECKOUT.GENIUS_METHOD_PRICE}
+            originalPrice={CHECKOUT.GENIUS_METHOD_ORIGINAL_PRICE}
+            token="GENIUS_METHOD_PRICE"
+          />
+          <ProductCard
+            product={HELL}
+            price={CHECKOUT.HELL_METHOD_PRICE}
+            originalPrice={CHECKOUT.HELL_METHOD_ORIGINAL_PRICE}
+            token="HELL_METHOD_PRICE"
+            delay={120}
+          />
         </div>
 
         <Reveal className="mt-10 text-center">
@@ -98,7 +116,7 @@ export default function Products() {
               href="#bundle"
               className="font-medium text-ink underline decoration-gold underline-offset-4 transition-colors hover:bg-sand"
             >
-              Or get both guides at one price →
+              Or get both guides together for only ₹49 (Save 75%) →
             </a>
           </p>
         </Reveal>

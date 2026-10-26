@@ -77,9 +77,11 @@ export default function Bundle() {
               <div className="mt-9 flex flex-col items-center gap-7 lg:items-start">
                 <div className="flex flex-wrap items-baseline justify-center gap-x-4 gap-y-2 lg:justify-start">
                   <PriceTag price={CHECKOUT.BUNDLE_PRICE} token="BUNDLE_PRICE" large />
-                  <span className="font-serif text-xl text-ink-mute line-through">₹398</span>
+                  <span className="font-serif text-xl text-ink-mute line-through">
+                    {CHECKOUT.BUNDLE_ORIGINAL_PRICE}
+                  </span>
                   <span className="rounded-full bg-sage-mist px-2.5 py-1 text-xs font-semibold text-sage-deep">
-                    Save ₹99
+                    Save ₹149 (75% OFF)
                   </span>
                   <span className="text-[12px] font-medium uppercase tracking-[0.18em] text-ink-mute">
                     One-time payment · Both guides

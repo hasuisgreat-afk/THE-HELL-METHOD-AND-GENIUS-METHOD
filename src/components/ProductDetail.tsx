@@ -16,6 +16,7 @@ export default function ProductDetail({ product, flip = false, tone = "cream" }:
   const P = product;
   const isGenius = P.id === "genius";
   const price = isGenius ? CHECKOUT.GENIUS_METHOD_PRICE : CHECKOUT.HELL_METHOD_PRICE;
+  const originalPrice = isGenius ? CHECKOUT.GENIUS_METHOD_ORIGINAL_PRICE : CHECKOUT.HELL_METHOD_ORIGINAL_PRICE;
   const checkoutUrl = isGenius ? CHECKOUT.GENIUS_METHOD_CHECKOUT_URL : CHECKOUT.HELL_METHOD_CHECKOUT_URL;
   const token = isGenius ? "GENIUS_METHOD_PRICE" : "HELL_METHOD_PRICE";
 
@@ -143,6 +144,10 @@ export default function ProductDetail({ product, flip = false, tone = "cream" }:
             <p className="eyebrow">Get the guide</p>
             <div className="mt-5 flex flex-wrap items-baseline justify-center gap-x-4 gap-y-2">
               <PriceTag price={price} token={token} large />
+              <span className="font-serif text-xl text-ink-mute line-through">{originalPrice}</span>
+              <span className="rounded-full bg-sage-mist px-2.5 py-1 text-xs font-semibold text-sage-deep">
+                Save 60%
+              </span>
               <span className="text-[12px] font-medium uppercase tracking-[0.18em] text-ink-mute">
                 One-time purchase
               </span>
@@ -150,6 +155,19 @@ export default function ProductDetail({ product, flip = false, tone = "cream" }:
 
             <div className="mx-auto mt-8 max-w-sm">
               <CheckoutButton url={checkoutUrl} label={`Get ${P.name}`} />
+            </div>
+
+            <div className="mt-4">
+              <a
+                href="#bundle"
+                className="inline-flex items-center gap-1.5 rounded-full bg-sand/80 px-3.5 py-1.5 text-xs font-medium text-ink transition-colors hover:bg-gold-light/40"
+              >
+                <span>💡 Best Value:</span>
+                <span className="underline decoration-gold underline-offset-2">
+                  Get Both Guides in the Bundle for just ₹49 (Save 75%)
+                </span>
+                <span>→</span>
+              </a>
             </div>
 
             <p className="mt-5 text-xs leading-relaxed text-ink-mute">

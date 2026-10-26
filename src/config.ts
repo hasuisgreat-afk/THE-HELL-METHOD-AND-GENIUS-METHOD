@@ -52,14 +52,17 @@ export const SITE = {
 /* ── Editable business fields ────────────────────────────── */
 
 export const CHECKOUT = {
-  GENIUS_METHOD_PRICE: "₹199",
+  GENIUS_METHOD_PRICE: "₹39",
+  GENIUS_METHOD_ORIGINAL_PRICE: "₹99",
   GENIUS_METHOD_CHECKOUT_URL: "https://rzp.io/rzp/4Elz8FsA",
 
-  HELL_METHOD_PRICE: "₹199",
+  HELL_METHOD_PRICE: "₹39",
+  HELL_METHOD_ORIGINAL_PRICE: "₹99",
   HELL_METHOD_CHECKOUT_URL: "https://rzp.io/rzp/4Elz8FsA",
 
   /** Complete bundle — both guides, one price. */
-  BUNDLE_PRICE: "₹299",
+  BUNDLE_PRICE: "₹49",
+  BUNDLE_ORIGINAL_PRICE: "₹198",
   BUNDLE_CHECKOUT_URL: "https://rzp.io/rzp/4Elz8FsA",
 
   SUPPORT_EMAIL: "hellmethod2343@gmail.com", // update if different
